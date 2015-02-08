@@ -2,7 +2,7 @@
   (:require [compojure.core :refer :all]
             [compojure.route :as route]))
 
+;; Can't add routes not found
 (defroutes app 
-  (GET "/" [] "I do work.>")
-  (PUT "/" [] "Do I work?")
-  (route/not-found "<h1>Page not found</h1>"))
+  (GET "/handler" [] "I do work.>")
+  (PUT "/handler" [] "Do I work?"))

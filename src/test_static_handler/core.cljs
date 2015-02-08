@@ -1,12 +1,14 @@
 (ns ^:figwheel-always test-static-handler.core
-    (:require))
+    (:require [ajax.core :refer [GET POST]]))
 
 (enable-console-print!)
 
-(println "Edits to this text should show up in your developer console.")
+(defn callback [msg resp]
+  (println msg)
+  (println (str resp)))
 
-;; define your app data so that it doesn't get over-written on reload
+(GET "/handler" {:handler (partial callback "GET/OK:")
+                 :error-handler (partial callback "GET/ERROR:")})
 
-(defonce app-state (atom {:text "Hello world!"}))
-
-
+(POST "/handler" {:handler (partial callback "POST/OK:")
+                  :error-handler (partial callback "POST/ERROR:")})
