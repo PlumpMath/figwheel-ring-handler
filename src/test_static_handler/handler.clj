@@ -4,5 +4,5 @@
 
 ;; Can't add routes not found
 (defroutes app 
-  (GET "/handler" [] "I do work.>")
-  (PUT "/handler" [] "Do I work?"))
+  (GET "/handler" [] "I'm a GET. I do work.")
+  (POST "/handler" [] "I'm a POST. Do I work?"))
